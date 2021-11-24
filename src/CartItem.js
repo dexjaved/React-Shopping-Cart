@@ -13,28 +13,29 @@ const CartItem = (props) => {
         return(
             <div className="cart-item">
                 <div className="left-block">
-                    <img style={style.image} src={product.img} />    
+                    <img alt="" style={style.image} src={product.img} />    
                 </div>
                 <div className="right-block"> 
                     <div style={{fontSize: 25}}> {title} </div> 
-                    <div style={{color: '#777'}}> {price} </div> 
-                    <div style={{color: '#777'}}> {qty} </div> 
+                    < div style={{color: 'green'}}> Rs.{price} </div> 
+                    <div style={{color: '#777'}}> Qty. {qty} </div> 
                     <div className="cart-item-actions"> {/* Button*/}
-                        <img alt="increase" 
-                        className="action-icons" 
-                        src="https://cdn-icons-png.flaticon.com/512/992/992651.png" 
-                        onClick={() => onIncreaseQuantity(product)}
-                        />
+                       
                         <img 
                         alt="decrease" 
                         className="action-icons" 
-                        src="https://cdn-icons.flaticon.com/png/512/2740/premium/2740679.png?token=exp=1634801303~hmac=606e78991f2955037cbe89bcd5bc2151" 
+                        src="/minus.png" 
                         onClick={() => onDecreaseQuantity(product)}
+                        />
+                         <img alt="increase" 
+                        className="action-icons" 
+                        src="/plus.png" 
+                        onClick={() => onIncreaseQuantity(product)}
                         />
                         <img 
                         alt="delete" 
                         className="action-icons" 
-                        src="https://cdn-icons-png.flaticon.com/512/1214/1214428.png" 
+                        src="/delete.png" 
                         onClick = {() => onDeleteProduct(product.id)}
                         />
                      </div> 

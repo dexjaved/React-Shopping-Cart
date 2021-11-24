@@ -8,25 +8,24 @@ class App extends React.Component {
     this.state ={
         products : [
             {
-            price :999,
-            title : 'phone',
+            price :500,
+            title : 'Quran',
             qty: 1,
-            img: 'https://images.unsplash.com/photo-1567581935884-3349723552ca?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1374&q=80',
+            img: "/quran.png",
             id: 1
          }, 
          {
-            price :999,
-            title : 'watch',
+            price :200,
+            title : 'Card',
             qty: 1,
-            img: 'https://media.istockphoto.com/photos/military-style-watch-picture-id650233226?s=612x612',
+            img: "/card.png",
             id: 2
          }, 
          {
-            price :999,
-            title : 'laptop',
-            qty: 4,
-            img: 'https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=764&q=80',
-            id: 3
+            price :250,
+            title : 'Mug',
+            qty: 1,
+            img: "/mug.png"
          } 
         ]
     }
@@ -46,7 +45,7 @@ class App extends React.Component {
     console.log('hey decrease the quantity ',product);
     const {products} = this.state;
     const index = products.indexOf(product);
-    if(products[index].qty==0){
+    if(products[index].qty===1){
         return;
     }
     products[index].qty -= 1;
@@ -59,7 +58,7 @@ class App extends React.Component {
 
  handleDeleteProduct = (id) => {
     const {products} = this.state;
-    const items = products.filter((item) => item.id != id);
+    const items = products.filter((item) => item.id !== id);
     this.setState({
         products:items
     })
@@ -75,7 +74,7 @@ class App extends React.Component {
  getCartTotal = () =>{
    const {products} = this.state;
    let cartTotal = 0;
-   products.map((product) => {
+   products.forEach((product) => {
     cartTotal = cartTotal + product.qty* product.price;
    })
    return cartTotal;
